@@ -15,15 +15,15 @@ ledsPlugin.start({'simulate': true, 'frequency': 10000}); //#B
 dhtPlugin.start({'simulate': true, 'frequency': 10000}); //#B
 
 // External Plugins
-var coapPlugin = require('./plugins/external/coapPlugin');
-coapPlugin.start({'simulate': false, 'frequency': 10000});
+//var coapPlugin = require('./plugins/external/coapPlugin');
+//coapPlugin.start({'simulate': false, 'frequency': 10000});
 
 // HTTP Server
 var server = httpServer.listen(resources.pi.port, function () {
   console.log('HTTP server started...');
 
   // Websockets server
-  wsServer.listen(server);
+  //wsServer.listen(server);
 
   console.info('Your WoT Pi is up and running on port %s', resources.pi.port);
 });
