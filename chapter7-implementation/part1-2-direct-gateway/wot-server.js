@@ -1,6 +1,6 @@
 // Final version
 var httpServer = require('./servers/http'),
-  wsServer = require('./servers/websockets'),
+  //wsServer = require('./servers/websockets'),
   resources = require('./resources/model');
 
 // Internal Plugins
