@@ -23,6 +23,15 @@ router.route('/humidity').get(function (req, res, next) {
   next();
 });
 
+router.route('/dht').get(function (req, res, next) {
+  req.result = resources.pi.sensors.dht;
+  next();
+});
+
+router.route('/hc').get(function (req, res, next) {
+  req.result = resources.pi.sensors.hc;
+  next();
+});
 module.exports = router;
 
 //#A Assign the results to a new property of the req object that you pass along from middleware to middleware

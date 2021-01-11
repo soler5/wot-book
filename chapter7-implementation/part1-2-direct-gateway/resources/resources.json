@@ -23,6 +23,14 @@
         "description": "A passive infrared sensor. When 'true' someone is present.",
         "value": true,
         "gpio": 17
+      },
+      "hc": {
+        "name": "US sensor",
+        "description": "A passive ultrasonic sensor. Send distance",
+        "value": 0,
+        "unit": "mm",
+        "trigger": 23,
+        "echo": 24
       }
     },
     "actuators": {
