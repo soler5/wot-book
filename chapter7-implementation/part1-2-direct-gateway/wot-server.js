@@ -7,7 +7,7 @@ var httpServer = require('./servers/http'),
 var ledsPlugin = require('./plugins/internal/ledsPlugin'), //#A
   pirPlugin = require('./plugins/internal/pirPlugin'), //#A
   dhtPlugin = require('./plugins/internal/DHT22SensorPlugin'); //#A
-  hcPlugin = require('./plugins/internal/hcSensorPlugin'); //#A
+  hcPlugin = require('./plugins/internal/hcPlugin'); //#A
 
 // Internal Plugins for sensors/actuators connected to the PI GPIOs
 // If you test this with real sensors do not forget to set simulate to 'false'
