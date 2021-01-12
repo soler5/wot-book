@@ -2,7 +2,7 @@ var mqtt = require('mqtt');
 var resources = require('./../../resources/model'),
   utils = require('./../../utils/utils.js');
 
-  var client = mqtt.connect("localhost");
+  var client = mqtt.connect("mqtt://localhost:1883");
   
 
 
