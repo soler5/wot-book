@@ -54,7 +54,7 @@ client.on('connect', function () {
         const endTick = tick;
         const diff = (endTick>>0) - (starTick>>0);
         model.hc.value = diff/2/MICROSECONDS_PER_CM;
-        client.publish('HC-SR04', '[{"value": '+value+'}]');
+        client.publish('HC-SR04', '[{"value": '+model.hc.value+'}]');
       }
     })
   }
