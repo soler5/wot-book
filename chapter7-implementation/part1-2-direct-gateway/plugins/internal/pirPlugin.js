@@ -5,13 +5,14 @@ var model = resources.pi.sensors.pir;
 var pluginName = resources.pi.sensors.pir.name;
 var localParams = {'simulate': false, 'frequency': 2000};
 
+var client = mqtt.connect("mqtt://192.168.0.37:1883");
+
 exports.start = function (params) { //#A
   localParams = params;
-  if (localParams.simulate) {
-    simulate();
-  } else {
+
+  client.on('connect', function () {
     connectHardware();
-  }
+  });
 };
 
 exports.stop = function () { //#A
@@ -30,16 +31,10 @@ function connectHardware() { //#B
     if (err) exit(err);
     model.value = !!value;
     showValue();
+    if(model.value)
+      client.publish('Sensor-Pir', 'Se ha detectado presencia!');
   });
   console.info('Hardware %s sensor started!', pluginName);
-};
-
-function simulate() { //#E
-  interval = setInterval(function () {
-    model.value = !model.value;
-    showValue();
-  }, localParams.frequency);
-  console.info('Simulated %s sensor started!', pluginName);
 };
 
 function showValue() {

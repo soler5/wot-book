@@ -2,7 +2,7 @@ var mqtt = require('mqtt');
 var resources = require('./../../resources/model'),
 utils = require('./../../utils/utils.js');
 
-var client = mqtt.connect("mqtt://192.168.0.37:1883");
+//var client = mqtt.connect("mqtt://192.168.0.37:1883");
   
 
 
@@ -15,11 +15,7 @@ var localParams = {'simulate': false, 'frequency': 5000};
 
 exports.start = function (params) {
   localParams = params;
-  if (params.simulate) {
-    simulate();
-  } else {
-    connectHardware();
-  }
+  connectHardware();
 };
 
 exports.stop = function () {
@@ -33,16 +29,13 @@ exports.stop = function () {
 
 function connectHardware() {
 
-  
+  const Gpio = require('pigpio').Gpio;
+  const MICROSECONDS_PER_CM = 1e6/34321;
 
-const Gpio = require('pigpio').Gpio;
+  const trigger = new Gpio(23, {mode: Gpio.OUTPUT});
+  const ECHO = new Gpio(24, {mode: Gpio.INPUT, alert: true});
 
-const MICROSECONDS_PER_CM = 1e6/34321;
-
-const trigger = new Gpio(23, {mode: Gpio.OUTPUT});
-const ECHO = new Gpio(24, {mode: Gpio.INPUT, alert: true});
-
-client.on('connect', function () {
+//client.on('connect', function () {
   trigger.digitalWrite(0);
 
   const warchHCSR04 = () =>{
@@ -54,7 +47,7 @@ client.on('connect', function () {
         const endTick = tick;
         const diff = (endTick>>0) - (starTick>>0);
         model.hc.value = diff/2/MICROSECONDS_PER_CM;
-        client.publish('HC-SR04', '[{"value": '+model.hc.value+'}]');
+        //client.publish('HC-SR04', '[{"value": '+model.hc.value+'}]');
       }
     })
   }
@@ -63,17 +56,7 @@ client.on('connect', function () {
   setInterval(()=>{
     trigger.trigger(10, 1);
   }, 1000);
-});
-
-
-};
-
-function simulate() {
-  interval = setInterval(function () {
-    model.hc.value = utils.randomInt(0, 200);
-    showValue();
-  }, localParams.frequency);
-  console.info('Simulated %s sensor started!', pluginName);
+//});
 };
 
 function showValue() {
