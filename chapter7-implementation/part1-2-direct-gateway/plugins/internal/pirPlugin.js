@@ -32,7 +32,7 @@ function connectHardware() { //#B
     model.value = !!value;
     showValue();
     if(model.value)
-      client.publish('Sensor-Pir', 'Se ha detectado presencia!');
+      client.publish('Sensor-Pir', model.value ? 'there is someone!' : 'not anymore!');
   });
   console.info('Hardware %s sensor started!', pluginName);
 };
