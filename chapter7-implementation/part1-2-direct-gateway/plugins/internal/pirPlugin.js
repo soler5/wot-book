@@ -1,5 +1,5 @@
 var resources = require('./../../resources/model');
-
+var mqtt = require('mqtt');
 var interval, sensor;
 var model = resources.pi.sensors.pir;
 var pluginName = resources.pi.sensors.pir.name;
