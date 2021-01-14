@@ -31,8 +31,7 @@ function connectHardware() { //#B
     if (err) exit(err);
     model.value = !!value;
     showValue();
-    if(model.value)
-      client.publish('Sensor-Pir', model.value ? 'there is someone!' : 'not anymore!');
+    client.publish('Sensor-Pir', model.value ? 'there is someone!' : 'not anymore!');
   });
   console.info('Hardware %s sensor started!', pluginName);
 };
