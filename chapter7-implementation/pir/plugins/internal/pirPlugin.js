@@ -31,7 +31,7 @@ function connectHardware() { //#B
     if (err) exit(err);
     model.value = !!value;
     showValue();
-    client.publish('presence', model.value ? "1" : "0");
+    client.publish('presence', model.value ? 'there is someone!' : 'not anymore!');
   });
   console.info('Hardware %s sensor started!', pluginName);
 };
