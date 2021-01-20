@@ -8,7 +8,7 @@
         "name": "Passive Infrared",
         "description": "A passive infrared sensor. When 'true' someone is present.",
         "value": true,
-        "gpio": 17
+        "gpio": 27
       }
     }
   }
