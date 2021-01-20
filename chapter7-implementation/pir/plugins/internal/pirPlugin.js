@@ -30,7 +30,8 @@ function connectHardware() { //#B
   sensor.watch(function (err, value) { //#D
     if (err) exit(err);
     model.value = !!value;
-    showValue();
+    //showValue();
+    console.info(value);
     client.publish('presence', model.value ? 'there is someone!' : 'not anymore!');
   });
   console.info('Hardware %s sensor started!', pluginName);
