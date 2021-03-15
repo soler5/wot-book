@@ -61,7 +61,7 @@ var model = resources.pi.sensors.pir;
 var pluginName = resources.pi.sensors.pir.name;
 var localParams = {'simulate': false, 'frequency': 2000};
 
-var client = mqtt.connect("mqtt://192.168.0.37:1883");
+//var client = mqtt.connect("mqtt://192.168.0.37:1883");
 var client = amqp.connect('amqp://192.168.0.37', function(error0, connection) {});
 var amqp = require('amqplib/callback_api');
 
@@ -109,7 +109,7 @@ exports.start = function (params) { //#A
         connection.close();
         process.exit(0);
     }, 500);
-    
+
       console.info('Hardware %s sensor started!', pluginName);
   });
 };
