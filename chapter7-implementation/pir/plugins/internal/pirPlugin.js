@@ -32,7 +32,8 @@ function connectHardware() { //#B
     model.value = !!value;
     showValue();
     //console.info(value);
-    client.publish('presence', model.value ? 'there is someone!' : 'not anymore!');
+    if(model.value)
+      client.publish('presence', '{value:1,date'+Date.UTC+'}');
   });
   console.info('Hardware %s sensor started!', pluginName);
 };
