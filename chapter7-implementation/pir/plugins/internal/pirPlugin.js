@@ -99,7 +99,7 @@ exports.start = function (params) { //#A
           durable: false
         });
   
-        channel.sendToQueue(queue, Buffer.from(msg));
+        channel.sendToQueue(queue, (msg));
       });
 
 
