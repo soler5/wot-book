@@ -33,7 +33,7 @@ function connectHardware() { //#B
     showValue();
     //console.info(value);
     var date = new Date();
-    if(model.value){
+    if(model.value == true){
       client.publish('presence', '{value:1,date:'+ date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'}');
     }else{
       client.publish('presence', '{value:0,date:'+ date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'}');
