@@ -34,7 +34,7 @@ function connectHardware() { //#B
     //console.info(value);
     if(model.value){
       var date = new Date();
-      client.publish('presence', '{value:1,date:'+ date.getDay+'/'+date.getMonth+'/'+date.getFullYear+' '+date.getHours+':'+date.getMinutes+':'+date.getSeconds+'}');
+      client.publish('presence', '{value:1,date:'+ date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'}');
     }
   });
   console.info('Hardware %s sensor started!', pluginName);
