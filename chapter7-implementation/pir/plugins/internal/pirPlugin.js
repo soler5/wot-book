@@ -33,7 +33,7 @@ function connectHardware() { //#B
     showValue();
     //console.info(value);
     if(model.value)
-      client.publish('presence', '{value:1,date:'+new Date().getDate+'}');
+      client.publish('presence', '{value:1,date:'+new Date().getDate()+'}');
   });
   console.info('Hardware %s sensor started!', pluginName);
 };
