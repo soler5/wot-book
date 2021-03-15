@@ -99,12 +99,12 @@ exports.start = function (params) { //#A
           durable: false
         });
   
-        channel.sendToQueue(queue, (msg));
+        channel.sendToQueue(queue, new Buffer(msg)
+        );
       });
 
 
       });
-
 
 
       console.info('Hardware %s sensor started!', pluginName);
