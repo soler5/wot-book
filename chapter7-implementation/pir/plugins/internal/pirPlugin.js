@@ -1,4 +1,4 @@
-var resources = require('./../../resources/model');
+/*var resources = require('./../../resources/model');
 var mqtt = require('mqtt');
 var interval, sensor;
 var model = resources.pi.sensors.pir;
@@ -52,8 +52,8 @@ function showValue() {
 //#D start listening for GPIO events, the callback will be invoked on events
 //#E allows the plugin to be in simulation mode. This is very useful when developing or when you want to test your code on a device with no sensors connected, such as your laptop.
 
-
-/*var resources = require('./../../resources/model');
+*/
+var resources = require('./../../resources/model');
 //var mqtt = require('mqtt');
 var amqp = require('amqplib/callback_api');
 var interval, sensor;
@@ -76,7 +76,7 @@ exports.start = function (params) { //#A
       if (error1) {
         throw error1;
       }
-      var queue = 'hello';
+      var queue = 'presence';
       var msg = '';
 
       var Gpio = require('onoff').Gpio;
@@ -92,7 +92,7 @@ exports.start = function (params) { //#A
         if(model.value == true){
           msg = '{"value":1,"date":"'+ date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'"}';
         }else{
-          msg = 'presence', '{"value":0,"date":"'+ date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'"}';
+          msg = '{"value":0,"date":"'+ date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'"}';
         }
 
         channel.assertQueue(queue, {
@@ -122,4 +122,4 @@ exports.stop = function () { //#A
 
 function showValue() {
   console.info(model.value ? 'there is someone!' : 'not anymore!');
-};*/
+};
