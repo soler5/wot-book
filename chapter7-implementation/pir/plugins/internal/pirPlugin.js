@@ -1,4 +1,4 @@
-/*var resources = require('./../../resources/model');
+var resources = require('./../../resources/model');
 var mqtt = require('mqtt');
 var interval, sensor;
 var model = resources.pi.sensors.pir;
@@ -45,7 +45,7 @@ function connectHardware() { //#B
 function showValue() {
   console.info(model.value ? 'there is someone!' : 'not anymore!');
 };
-*/
+
 //#A starts and stops the plugin, should be accessible from other Node.js files so we export them
 //#B require and connect the actual hardware driver and configure it
 //#C configure the GPIO pin to which the PIR sensor is connected
@@ -53,7 +53,7 @@ function showValue() {
 //#E allows the plugin to be in simulation mode. This is very useful when developing or when you want to test your code on a device with no sensors connected, such as your laptop.
 
 
-var resources = require('./../../resources/model');
+/*var resources = require('./../../resources/model');
 //var mqtt = require('mqtt');
 var amqp = require('amqplib/callback_api');
 var interval, sensor;
@@ -122,4 +122,4 @@ exports.stop = function () { //#A
 
 function showValue() {
   console.info(model.value ? 'there is someone!' : 'not anymore!');
-};
+};*/
