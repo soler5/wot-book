@@ -1,4 +1,4 @@
-/*var resources = require('./../../resources/model');
+var resources = require('./../../resources/model');
 var mqtt = require('mqtt');
 var interval, sensor;
 var model = resources.pi.sensors.pir;
@@ -52,7 +52,7 @@ function showValue() {
 //#D start listening for GPIO events, the callback will be invoked on events
 //#E allows the plugin to be in simulation mode. This is very useful when developing or when you want to test your code on a device with no sensors connected, such as your laptop.
 
-*/
+/*
 var resources = require('./../../resources/model');
 //var mqtt = require('mqtt');
 var amqp = require('amqplib/callback_api');
@@ -122,4 +122,4 @@ exports.stop = function () { //#A
 
 function showValue() {
   console.info(model.value ? 'there is someone!' : 'not anymore!');
-};
+};*/
