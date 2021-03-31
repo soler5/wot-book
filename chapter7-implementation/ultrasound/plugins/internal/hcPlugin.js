@@ -51,9 +51,10 @@ function connectHardware() {
         model.hc.value = diff/2/MICROSECONDS_PER_CM;
 
         if(model.hc.value<50){
-          client.publish('HC-SR04', '[{"value": '+1+'}]');
+          client.publish('HC-SR04', '{"value":1,"date":"'+ date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'"}');
+
         }else{
-          client.publish('HC-SR04', '[{"value": '+0+'}]');
+          client.publish('HC-SR04', '{"value":0,"date":"'+ date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'"}');
         }
       }
     })
