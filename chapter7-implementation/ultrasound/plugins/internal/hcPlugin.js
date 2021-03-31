@@ -49,6 +49,7 @@ function connectHardware() {
         const endTick = tick;
         const diff = (endTick>>0) - (starTick>>0);
         model.hc.value = diff/2/MICROSECONDS_PER_CM;
+        var date = new Date();
 
         if(model.hc.value<50){
           client.publish('HC-SR04', '{"value":1,"date":"'+ date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'"}');
