@@ -1,8 +1,8 @@
-//var mqtt = require('mqtt');
+var mqtt = require('mqtt');
 var resources = require('./../../resources/model'),
 utils = require('./../../utils/utils.js');
 
-//var client = mqtt.connect("mqtt://192.168.0.37:1883");
+var client = mqtt.connect("mqtt://192.168.0.37:1883");
   
 
 
@@ -15,7 +15,9 @@ var localParams = {'simulate': false, 'frequency': 5000};
 
 exports.start = function (params) {
   localParams = params;
-  connectHardware();
+  client.on('connect', function () {
+    connectHardware();
+  });
 };
 
 exports.stop = function () {
@@ -47,7 +49,10 @@ function connectHardware() {
         const endTick = tick;
         const diff = (endTick>>0) - (starTick>>0);
         model.hc.value = diff/2/MICROSECONDS_PER_CM;
-        //client.publish('HC-SR04', '[{"value": '+model.hc.value+'}]');
+
+        if(model.hc.value<50){
+          client.publish('HC-SR04', '[{"value": '+model.hc.value+'}]');
+        }
       }
     })
   }
