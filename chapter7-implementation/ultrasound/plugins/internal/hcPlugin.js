@@ -51,7 +51,9 @@ function connectHardware() {
         model.hc.value = diff/2/MICROSECONDS_PER_CM;
 
         if(model.hc.value<50){
-          client.publish('HC-SR04', '[{"value": '+model.hc.value+'}]');
+          client.publish('HC-SR04', '[{"value": '+1+'}]');
+        }else{
+          client.publish('HC-SR04', '[{"value": '+0+'}]');
         }
       }
     })
