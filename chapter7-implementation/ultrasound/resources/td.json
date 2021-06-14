@@ -4,11 +4,11 @@
     "securityDefinitions": {"nosec_sc": {"scheme": "nosec"}},
     "security": ["nosec_sc"],
     "properties": {
-        "presence": {
-          "type": "boolean",
+        "distance": {
+          "type": "number",
           "forms": [
             {
-              "href": "http://192.168.0.37:8486/sensors/pir",
+              "href": "http://192.168.0.37:8488/sensors/pir",
               "op": ["readproperty"],
               "contentType": "application/json"
             }
@@ -16,7 +16,7 @@
         }
       },
     "events": {
-        "presence": {
+        "short-distance": {
             "data":{"type": "integer"},
             "forms": [
                 {

@@ -2,30 +2,11 @@
 var express = require('express'),
   router = express.Router(),
   resources = require('./../resources/model');
+  var td = require('./../resources/td.json');
 
 router.route('/').get(function (req, res, next) {
-  req.result = resources.pi.sensors; //#A
+  req.result = td; //#A
   next(); //#B
-});
-
-router.route('/pir').get(function (req, res, next) {
-  req.result = resources.pi.sensors.pir;
-  next();
-});
-
-router.route('/temperature').get(function (req, res, next) {
-  req.result = resources.pi.sensors.temperature;
-  next();
-});
-
-router.route('/humidity').get(function (req, res, next) {
-  req.result = resources.pi.sensors.humidity;
-  next();
-});
-
-router.route('/dht').get(function (req, res, next) {
-  req.result = resources.pi.sensors.dht;
-  next();
 });
 
 router.route('/hc').get(function (req, res, next) {

@@ -4,17 +4,11 @@
     "description": "A simple WoT-connected Raspberry PI for the WoT book.",
     "port": 8487,
     "actuators": {
-      "leds": {
-        "1": {
+      "led": {
           "name": "LED 1",
           "value": false,
           "gpio": 3
-        },
-        "2": {
-          "name": "LED 2",
-          "value": false,
-          "gpio": 9
-        }
+        
       }
     }
   }

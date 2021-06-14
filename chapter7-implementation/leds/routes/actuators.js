@@ -1,22 +1,23 @@
 var express = require('express'),
   router = express.Router(),
   resources = require('./../resources/model');
+  var td = require('./../resources/td.json');
 
 router.route('/').get(function (req, res, next) {
-  req.result = resources.pi.actuators;
+  req.result = td; //#A
   next();
 });
 
 router.route('/leds').get(function (req, res, next) {
-  req.result = resources.pi.actuators.leds;
+  req.result = resources.pi.actuators.led;
   next();
 });
 
-router.route('/leds/:id').get(function (req, res, next) { //#A
-  req.result = resources.pi.actuators.leds[req.params.id];
+router.route('/led').get(function (req, res, next) { //#A
+  req.result = resources.pi.actuators.led;
   next();
 }).put(function(req, res, next) { //#B
-  var selectedLed = resources.pi.actuators.leds[req.params.id];
+  var selectedLed = resources.pi.actuators.led;
   selectedLed.value = req.body.value; //#C
   req.result = selectedLed;
   next();

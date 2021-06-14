@@ -4,14 +4,10 @@ utils = require('./../../utils/utils.js');
 
 var client = mqtt.connect("mqtt://192.168.0.37:1883");
   
-
-
 var interval, sensor;
 var model = resources.pi.sensors;
 var pluginName = 'US sensor';
 var localParams = {'simulate': false, 'frequency': 5000};
-
-
 
 exports.start = function (params) {
   localParams = params;
@@ -37,7 +33,6 @@ function connectHardware() {
   const trigger = new Gpio(23, {mode: Gpio.OUTPUT});
   const ECHO = new Gpio(24, {mode: Gpio.INPUT, alert: true});
 
-//client.on('connect', function () {
   trigger.digitalWrite(0);
 
   const warchHCSR04 = () =>{
@@ -65,11 +60,6 @@ function connectHardware() {
   setInterval(()=>{
     trigger.trigger(10, 1);
   }, 1000);
-//});
-};
-
-function showValue() {
-  console.info('Us sensor distance: %s mm \%', model.hc);
 };
 
 //#A Initialize the driver for HC on GPIO 12 (as specified in the model)

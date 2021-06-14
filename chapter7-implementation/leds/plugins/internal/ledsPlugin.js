@@ -1,7 +1,7 @@
 var resources = require('./../../resources/model');
 
 var actuator, interval;
-var model = resources.pi.actuators.leds['1'];
+var model = resources.pi.actuators.led;
 var pluginName = model.name;
 var localParams = {'simulate': false, 'frequency': 2000};
 

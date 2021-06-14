@@ -4,6 +4,7 @@ var express = require('express'),
   converter = require('./../middleware/converter'),
   cors = require('cors'),
   bodyParser = require('body-parser');
+  var td = require('./../resources/td.json');
 
 var app = express();
 
@@ -11,10 +12,10 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-app.use('/pi/sensors', sensorRoutes);
+app.use('/sensors', sensorRoutes);
 
-app.get('/pi', function (req, res) {
-  res.send('This is the WoT-Pi!')
+app.get('/', function (req, res) {
+  res.send(td);
 });
 
 // For representation design
