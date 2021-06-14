@@ -1,9 +1,6 @@
 var mqtt = require('mqtt');
-var resources = require('./../../resources/model'),
-utils = require('./../../utils/utils.js');
-
+var resources = require('./../../resources/model');
 var client = mqtt.connect("mqtt://192.168.0.37:1883");
-  
 var interval, sensor;
 var model = resources.pi.sensors;
 var pluginName = 'US sensor';
@@ -47,10 +44,10 @@ function connectHardware() {
         var date = new Date();
 
         if(model.hc.value<50){
-          client.publish('HC-SR04', '{"value":1,"date":"'+ date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'"}');
+          client.publish('short-distance', '{"value":1,"date":"'+ date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'"}');
 
         }else{
-          client.publish('HC-SR04', '{"value":0,"date":"'+ date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'"}');
+          client.publish('short-distance', '{"value":0,"date":"'+ date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'"}');
         }
       }
     })
@@ -62,7 +59,3 @@ function connectHardware() {
   }, 1000);
 };
 
-//#A Initialize the driver for HC on GPIO 12 (as specified in the model)
-//#B Fetch the values from the sensors
-//#C Update the model with the new temperature and humidity values; note that all observers will be notified
-//#D Because the driver doesn’t provide interrupts, you poll the sensors for new values on a regular basis with a regular timeout function and set sensor.read() as a callback

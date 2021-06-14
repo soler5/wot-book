@@ -17,7 +17,7 @@
       },
     "events": {
         "short-distance": {
-            "data":{"type": "integer"},
+            "data":{"type": "json"},
             "forms": [
                 {
                     "href": "mqtt://192.168.0.37:1883",
@@ -28,3 +28,4 @@
         }
     } 
   }
+
